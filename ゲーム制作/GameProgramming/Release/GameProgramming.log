@@ -1,0 +1,36 @@
+﻿2020/09/13 14:38:07 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\2020\プログラミング実習応用\3DLv1_00_2020\GameProgramming\GameProgramming.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /Gm- /EHsc /RTC1 /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CKey.cpp CSceneGame.cpp CSceneManager.cpp CSound.cpp CTexture.cpp Update.cpp main.cpp
+         CKey.cpp
+         CSceneGame.cpp
+         CSceneManager.cpp
+         CSound.cpp
+     1>c:\users\game\desktop\2020\プログラミング実習応用\3dlv1_00_2020\gameprogramming\CSound.h(66): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2020\プログラミング実習応用\3dlv1_00_2020\gameprogramming\CSound.h(101): warning C4101: 'cnt' : ローカル変数は 1 度も使われていません。
+     1>c:\users\game\desktop\2020\プログラミング実習応用\3dlv1_00_2020\gameprogramming\CSound.h(101): warning C4101: 'dw' : ローカル変数は 1 度も使われていません。
+     1>c:\users\game\desktop\2020\プログラミング実習応用\3dlv1_00_2020\gameprogramming\CSound.h(100): warning C4101: 'state' : ローカル変数は 1 度も使われていません。
+         CTexture.cpp
+     1>CTexture.cpp(48): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>CTexture.cpp(55): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+         Update.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\2020\プログラミング実習応用\3DLv1_00_2020\Release\GameProgramming.exe" /INCREMENTAL:NO /NOLOGO glew32.lib glfw3.lib glfw3dll.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Game\Desktop\2020\プログラミング実習応用\3DLv1_00_2020\Release\GameProgramming.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\2020\プログラミング実習応用\3DLv1_00_2020\Release\GameProgramming.lib" /MACHINE:X86 /SAFESEH Release\CKey.obj
+         Release\CSceneGame.obj
+         Release\CSceneManager.obj
+         Release\CSound.obj
+         Release\CTexture.obj
+         Release\Update.obj
+         Release\main.obj
+         コード生成しています。
+         コード生成が終了しました。
+         GameProgramming.vcxproj -> C:\Users\Game\Desktop\2020\プログラミング実習応用\3DLv1_00_2020\Release\GameProgramming.exe
+     1>プロジェクト "C:\Users\Game\Desktop\2020\プログラミング実習応用\3DLv1_00_2020\GameProgramming\GameProgramming.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:05.14
