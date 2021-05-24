@@ -19,7 +19,7 @@ CFriendly::CFriendly(CModel*model, CVector position, CVector rotation, CVector s
 }
 void CFriendly::Update(){
 	CTransform::Update();
-	mPosition = CVector(0.0f, 0.0f, 0.9f)*mMatrix;
+	mPosition = CVector(0.0f, 0.0f, 0.0f)*mMatrix;
 }
 //è’ìÀèàóù
 void CFriendly::Collision(CCollider*m, CCollider*o){

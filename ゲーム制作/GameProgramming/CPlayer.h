@@ -18,5 +18,6 @@ public:
 	CText mText;
 	void Render();
 	CCollider mCollider;
+	CMatrix mBackGroundMatrix;
 };
 #endif

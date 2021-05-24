@@ -2,6 +2,8 @@
 #include"CKey.h"
 #include"CTaskManager.h"
 #include"CCollisionManager.h"
+#include"CEnemy.h"
+CModel mModelC;
 CPlayer::CPlayer()
 : mLine(this, &mMatrix, CVector(0.0f, 0.0f, -14.0f), CVector(0.0f, 0.0f, 17.0f))
 , mLine2(this, &mMatrix, CVector(0.0f, 5.0f, -8.0f), CVector(0.0f, -3.0f, -8.0f))
@@ -38,6 +40,12 @@ void CPlayer::Update(){
 		bullet->Update();
 		//TaskManager.Add(bullet);
 	}
+	if (CKey::Push('Z')){
+		mModelC.Load("c5.obj", "c5.mtl");
+		new CEnemy(&mModelC, CVector(0.0f, 10.0f, -10.0f)
+			*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+	}
+
 	CTransform::Update();
 }
 void CPlayer::Collision(CCollider*m, CCollider*o){
