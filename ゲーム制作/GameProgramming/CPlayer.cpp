@@ -3,7 +3,10 @@
 #include"CTaskManager.h"
 #include"CCollisionManager.h"
 #include"CEnemy.h"
+#include"CFriendly.h"
 CModel mModelC;
+#define OBJ "f16.obj"
+#define MTL "f16.mtl"
 CPlayer::CPlayer()
 : mLine(this, &mMatrix, CVector(0.0f, 0.0f, -14.0f), CVector(0.0f, 0.0f, 17.0f))
 , mLine2(this, &mMatrix, CVector(0.0f, 5.0f, -8.0f), CVector(0.0f, -3.0f, -8.0f))
@@ -41,9 +44,8 @@ void CPlayer::Update(){
 		//TaskManager.Add(bullet);
 	}
 	if (CKey::Push('Z')){
-		mModelC.Load("c5.obj", "c5.mtl");
-		new CEnemy(&mModelC, CVector(0.0f, 10.0f, -10.0f)
-			*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+		mModelC.Load(OBJ, MTL);
+		new CFriendly(CVector(-2.0f, 10.0f, -30.0f)*mMatrixRotate, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	}
 
 	CTransform::Update();

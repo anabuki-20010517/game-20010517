@@ -1,17 +1,19 @@
-#ifndef FRIENDLY_H
-#define FRIENDLY_H
+#ifndef CFRIENDLY_H
+#define CFRIENDLY_H
 #include"CCharacter.h"
 #include"CCollider.h"
+#include"CTaskManager.h"
 class CFriendly :public CCharacter{
 public:
-	CFriendly(CModel*model, CVector position, CVector rotation, CVector scale);
+	static CModel mModel;
+	CCollider mCollider;
+	CFriendly();
+	CFriendly(const CVector&position, const CVector&rotation, const CVector&scale);
 	void Update();
-	//コライダ
-	CCollider mCollider1;
-	CCollider mCollider2;
-	CCollider mCollider3;
-
 	void Collision(CCollider*m, CCollider*o);
 	void TaskCollision();
+	CCollider mColSearch;
+	CCharacter*mpPlayer;//プレイヤーのポインタ
+	int mHp;
 };
 #endif
