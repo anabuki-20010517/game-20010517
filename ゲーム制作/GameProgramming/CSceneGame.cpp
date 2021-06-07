@@ -26,14 +26,14 @@ void CSceneGame::Init() {
 	mPlayer.mPosition = CVector(0.0f, 0.0f, -3.0f)*mBackGroundMatrix;
 	mPlayer.mRotation = CVector(0.0f, 180.0f, 0.0f);
 	mPlayer.mScale = CVector(0.1f, 0.1f, 0.1f);
-
+	/*
 	mModelC5.Load("c5.obj", "c5.mtl");
 	new CEnemy(&mModelC5, CVector(0.0f, 10.0f, -100.0f)
 		*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CEnemy(&mModelC5, CVector(30.0f,10.0f, -130.0f)
 		*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CBillBoard(CVector(-6.0f, 3.0f, -10.0f), 1.0f, 1.0f);
-
+	*/
 	mColliderTriangle.Set(NULL, NULL
 		, CVector(-50.0f, 0.0f, -50.0f)
 		, CVector(-50.0f, 0.0f, 50.0f)

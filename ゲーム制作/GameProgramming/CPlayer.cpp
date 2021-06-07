@@ -45,7 +45,7 @@ void CPlayer::Update(){
 	}
 	if (CKey::Push('Z')){
 		mModelC.Load(OBJ, MTL);
-		new CFriendly(CVector(-2.0f, 10.0f, -30.0f)*mMatrixRotate, CVector(), CVector(0.1f, 0.1f, 0.1f));
+		new CFriendly(CVector(0.0f, 0.0f, 10.0f)*mMatrixRotate, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	}
 
 	CTransform::Update();
