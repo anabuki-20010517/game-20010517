@@ -20,6 +20,7 @@ CEnemy2::CEnemy2()
 			}
 			mpModel = &mModel;
 			mColSearch.mTag = CCollider::ESEARCH;
+			mTag = EENEMY;
 }
 
 CEnemy2::CEnemy2(const CVector&position, const CVector&rotation,

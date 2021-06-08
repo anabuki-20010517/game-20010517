@@ -87,7 +87,7 @@ void CFriendly::Collision(CCollider*m, CCollider*o){
 	{
 		if (o->mType == CCollider::ESPHERE)
 		{
-			if (o->mpParent->mTag == EPLAYER)
+			if (o->mpParent->mTag == EENEMY)
 			{
 				if (CCollider::Collision(m, o))
 				{

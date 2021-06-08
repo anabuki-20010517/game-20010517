@@ -15,6 +15,7 @@ CPlayer::CPlayer()
 {
 	mText.LoadTexture("FontWhite.tga", 1, 64);
 	mTag = EPLAYER;
+	mFriend = 10;
 	
 }
 
@@ -43,9 +44,12 @@ void CPlayer::Update(){
 		bullet->Update();
 		//TaskManager.Add(bullet);
 	}
-	if (CKey::Push('Z')){
-		mModelC.Load(OBJ, MTL);
-		new CFriendly(CVector(0.0f, 0.0f, 10.0f)*mMatrixRotate, CVector(), CVector(0.1f, 0.1f, 0.1f));
+	if (mFriend > 0){
+		if (CKey::Push('Z')){
+			mModelC.Load(OBJ, MTL);
+			new CFriendly(CVector(0.0f, 0.0f, 30.0f)*mMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+			mFriend--;
+		}
 	}
 
 	CTransform::Update();

@@ -19,5 +19,6 @@ public:
 	void Render();
 	CCollider mCollider;
 	CMatrix mBackGroundMatrix;
+	int mFriend;
 };
 #endif
