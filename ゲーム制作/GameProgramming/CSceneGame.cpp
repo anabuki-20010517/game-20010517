@@ -13,6 +13,7 @@
 CModel mModelC5;
 #include"CEnemy2.h"
 #include"CFriendly.h"
+#include"COver.h"
 
 
 void CSceneGame::Init() {
@@ -47,8 +48,11 @@ void CSceneGame::Init() {
 	mColliderMesh.Set(NULL, &mBackGroundMatrix, &mBackGround);
 	new CEnemy2(CVector(-5.0f, 1.0f, -10.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CEnemy2(CVector(5.0f, 1.0f, -10.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
-	mBackGroundMatrix.Translate(0.0f, 0.0f, -500.0f);
+	new CEnemy2(CVector(5.0f, 1.0f, -100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 
+
+	new COver(CVector(5.0f, 1.0f, 100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+	mBackGroundMatrix.Translate(0.0f, 0.0f, -500.0f);
 }
 
 

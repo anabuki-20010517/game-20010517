@@ -9,7 +9,7 @@
 CModel CEnemy2::mModel;
 
 CEnemy2::CEnemy2()
-:mCollider(this, &mMatrix, CVector(0.0f,0.0f,0.0f),0.4f)
+: mCollider(this, &mMatrix, CVector(0.0f,0.0f,0.0f),0.4f)
 , mColSearch(this, &mMatrix, CVector(0.0f,0.0f,100.0f),30.0f)
 , mpPlayer(0)
 , mHp(HP)
@@ -46,6 +46,20 @@ void CEnemy2::Update(){
 		float dx = vp.Dot(vx);
 		float dy = vp.Dot(vy);
 		float dz = vp.Dot(vz);
+		if (dx > 0.0f)
+		{
+			mRotation.mY++;
+		}
+		else{
+			mRotation.mY--;
+		}
+		if (dy > 0.0f)
+		{
+			mRotation.mX--;
+		}
+		else{
+			mRotation.mX++;
+		}
 		//XŽ²‚ÌƒYƒŒ‚ª2.0ˆÈ‰º
 		if (-2.0f < dx && dx < 2.0f)
 		{
@@ -75,8 +89,8 @@ void CEnemy2::Update(){
 		CTransform::Update();
 		return;
 	}
-	//CTransform::Update();
-	//mPosition = CVector(0.0f, 0.0f, 0.9f)*mMatrix;
+	CTransform::Update();
+	mPosition = CVector(0.0f, 0.0f, 0.9f)*mMatrix;
 }
 
 void CEnemy2::Collision(CCollider*m, CCollider*o){
@@ -88,7 +102,7 @@ void CEnemy2::Collision(CCollider*m, CCollider*o){
 	{
 		if (o->mType == CCollider::ESPHERE)
 		{
-			if (o->mpParent->mTag == EPLAYER)
+			if (o->mpParent->mTag == EOVER)
 			{
 				if (CCollider::Collision(m, o))
 				{

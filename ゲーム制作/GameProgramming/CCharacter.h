@@ -13,6 +13,8 @@ public:
 		EENEMY,			//敵
 		EBULLETPLAYER,	//プレイヤー弾
 		EBULLETENEMY,	//敵弾
+		EOVER,			//ゲームオーバーライン
+		EFRIENDLY,		//味方
 	};
 	ETag mTag;
 	CModel*mpModel;
