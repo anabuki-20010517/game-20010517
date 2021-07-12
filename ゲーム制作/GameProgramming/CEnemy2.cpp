@@ -3,6 +3,7 @@
 #include"CTaskManager.h"
 #include"CCollisionManager.h"
 #include"CBullet.h"
+#include"CPlayer.h"
 #define OBJ "f16.obj"
 #define MTL "f16.mtl"
 #define HP 3
@@ -40,57 +41,61 @@ void CEnemy2::Update(){
 	CVector vx = CVector(1.0f, 0.0f, 0.0f)*mMatrixRotate;
 	CVector vy = CVector(0.0f, 1.0f, 0.0f)*mMatrixRotate;
 	CVector vz = CVector(0.0f, 0.0f, 1.0f)*mMatrixRotate;
-	if (mpPlayer)
+	if (CPlayer::spInstance->mStart == 0)
 	{
-		CVector vp = mpPlayer->mPosition - mPosition;
-		float dx = vp.Dot(vx);
-		float dy = vp.Dot(vy);
-		float dz = vp.Dot(vz);
-		if (dx > 0.0f)
+
+		if (mpPlayer)
 		{
-			mRotation.mY++;
-		}
-		else{
-			mRotation.mY--;
-		}
-		if (dy > 0.0f)
-		{
-			mRotation.mX--;
-		}
-		else{
-			mRotation.mX++;
-		}
-		//X軸のズレが2.0以下
-		if (-2.0f < dx && dx < 2.0f)
-		{
-			//Y軸のズレが2.0以下
-			if (-2.0f < dy && dy < 2.0f)
+			CVector vp = mpPlayer->mPosition - mPosition;
+			float dx = vp.Dot(vx);
+			float dy = vp.Dot(vy);
+			float dz = vp.Dot(vz);
+			if (dx > 0.0f)
 			{
-				if (0.0f< dz ){
-					CBullet*bullet = new CBullet();
-					bullet->Set(0.1f, 1.5f);
-					bullet->mPosition = CVector(0.0f, 0.0f, 10.0f)*mMatrix;
-					bullet->mRotation = mRotation;
-					bullet->Update();
+				mRotation.mY++;
+			}
+			else{
+				mRotation.mY--;
+			}
+			if (dy > 0.0f)
+			{
+				mRotation.mX--;
+			}
+			else{
+				mRotation.mX++;
+			}
+			//X軸のズレが2.0以下
+			if (-2.0f < dx && dx < 2.0f)
+			{
+				//Y軸のズレが2.0以下
+				if (-2.0f < dy && dy < 2.0f)
+				{
+					if (0.0f < dz){
+						CBullet*bullet = new CBullet();
+						bullet->Set(0.1f, 1.5f);
+						bullet->mPosition = CVector(0.0f, 0.0f, 10.0f)*mMatrix;
+						bullet->mRotation = mRotation;
+						bullet->Update();
+					}
 				}
 			}
 		}
-	}
-	mpPlayer = 0;
-	if (mHp <= 0)
-	{
-		mHp--;
-		//15フレーム毎にエフェクト
-		if (mHp % 15 == 0)
+		mpPlayer = 0;
+		if (mHp <= 0)
 		{
-			new CEffect(mPosition, 1.0f, 1.0f, "exp.tag", 4, 4, 2);
+			mHp--;
+			//15フレーム毎にエフェクト
+			if (mHp % 15 == 0)
+			{
+				new CEffect(mPosition, 1.0f, 1.0f, "exp.tag", 4, 4, 2);
+			}
+			mPosition.mY -= 0.03f;
+			CTransform::Update();
+			return;
 		}
-		mPosition.mY -= 0.03f;
 		CTransform::Update();
-		return;
+		mPosition = CVector(0.0f, 0.0f, 0.9f)*mMatrix;
 	}
-	CTransform::Update();
-	mPosition = CVector(0.0f, 0.0f, 0.9f)*mMatrix;
 }
 
 void CEnemy2::Collision(CCollider*m, CCollider*o){

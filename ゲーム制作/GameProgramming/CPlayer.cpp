@@ -7,16 +7,19 @@
 CModel mModelC;
 #define OBJ "f16.obj"
 #define MTL "f16.mtl"
+CPlayer* CPlayer::spInstance = 0;
+
 CPlayer::CPlayer()
 : mLine(this, &mMatrix, CVector(0.0f, 0.0f, -14.0f), CVector(0.0f, 0.0f, 17.0f))
 , mLine2(this, &mMatrix, CVector(0.0f, 5.0f, -8.0f), CVector(0.0f, -3.0f, -8.0f))
 , mLine3(this, &mMatrix, CVector(9.0f, 0.0f, -8.0f), CVector(-9.0f, 0.0f, -8.0f))
 , mCollider(this, &mMatrix, CVector(0.0f,0.0f,0.0f),0.5f)
+, mStart(1)
 {
 	mText.LoadTexture("FontWhite.tga", 1, 64);
 	mTag = EPLAYER;
 	mFriend = 10;
-	
+	spInstance = this;
 }
 
 void CPlayer::Update(){
@@ -51,7 +54,11 @@ void CPlayer::Update(){
 			mFriend--;
 		}
 	}
-
+	if (mStart > 0){
+		if (CKey::Push('R')){
+			mStart--;
+		}
+	}
 	CTransform::Update();
 }
 void CPlayer::Collision(CCollider*m, CCollider*o){

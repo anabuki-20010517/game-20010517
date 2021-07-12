@@ -8,6 +8,7 @@
 
 class CPlayer :public CCharacter{
 public:
+	static CPlayer*spInstance;
 	void Update();
 	CColliderLine mLine;
 	CColliderLine mLine2;
@@ -20,5 +21,6 @@ public:
 	CCollider mCollider;
 	CMatrix mBackGroundMatrix;
 	int mFriend;
+	int mStart;
 };
 #endif

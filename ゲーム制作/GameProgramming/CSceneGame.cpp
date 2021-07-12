@@ -10,13 +10,16 @@
 #include"CCollisionManager.h"
 #include"CBillBoard.h"
 #include"CCamera.h"
+#include"CPlayer.h"
 CModel mModelC5;
 #include"CEnemy2.h"
 #include"CFriendly.h"
 #include"COver.h"
 
 
-void CSceneGame::Init() {
+void CSceneGame::Init()
+{
+	
 	mEye = CVector(1.0f, 2.0f, 3.0f);
 	mModel.Load("f14.obj", "f14.mtl"); 
 	mBackGround.Load("sky.obj", "sky.mtl");
@@ -49,14 +52,18 @@ void CSceneGame::Init() {
 	new CEnemy2(CVector(-5.0f, 1.0f, -10.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CEnemy2(CVector(5.0f, 1.0f, -10.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CEnemy2(CVector(5.0f, 1.0f, -100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
-
+	
 
 	new COver(CVector(5.0f, 1.0f, 100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	mBackGroundMatrix.Translate(0.0f, 0.0f, -500.0f);
 }
 
 
+
+
+
 void CSceneGame::Update() {
+
 	CTaskManager::Get()->Update();
 	//íœCCollisionManager::Get()->Collision();
 	CTaskManager::Get()->TaskCollision();
@@ -104,9 +111,13 @@ void CSceneGame::Update() {
 		mEye.mY += 0.1f;
 	}
 
+
+	
+
+
+
 	CTaskManager::Get()->Delete();
 	CTaskManager::Get()->Render();
-    CCollisionManager::Get()->Render();
-
+	CCollisionManager::Get()->Render();
 	mBackGround.Render(mBackGroundMatrix);
 }

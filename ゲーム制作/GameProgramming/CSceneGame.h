@@ -26,6 +26,7 @@ public:
 	CColliderTriangle mColliderTriangle2;
 	CColliderMesh mColliderMesh;
 	CMatrix mBackGroundMatrix;
+	
 };
 
 

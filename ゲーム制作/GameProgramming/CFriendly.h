@@ -5,6 +5,7 @@
 #include"CTaskManager.h"
 class CFriendly :public CCharacter{
 public:
+	static CFriendly*spInstance;
 	static CModel mModel;
 	CCollider mCollider;
 	CFriendly();
