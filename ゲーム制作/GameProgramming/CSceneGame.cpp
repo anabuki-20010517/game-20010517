@@ -49,10 +49,11 @@ void CSceneGame::Init()
 		, CVector(50.0f, 0.0f, -50.0f));
 
 	mColliderMesh.Set(NULL, &mBackGroundMatrix, &mBackGround);
-	new CEnemy2(CVector(-5.0f, 1.0f, -10.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
-	new CEnemy2(CVector(5.0f, 1.0f, -10.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+	new CEnemy2(CVector(-5.0f, 1.0f, -100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CEnemy2(CVector(5.0f, 1.0f, -100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
-	
+	new CEnemy2(CVector(0.0f, 1.0f, -100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+	new CEnemy2(CVector(-20.0f, 1.0f, -70.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+	new CEnemy2(CVector(20.0f, 1.0f, -50.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 
 	new COver(CVector(5.0f, 1.0f, 100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	mBackGroundMatrix.Translate(0.0f, 0.0f, -500.0f);
@@ -77,7 +78,7 @@ void CSceneGame::Update() {
 	//視点の設定
 	CVector e, c, u;
 	//視点を求める
-	e = CVector(-2.0f, 10.0f, -30.0f)*mPlayer.mMatrix;	//注視点を求める
+	e = CVector(0.0f, 0.0f, -0.1f)*mPlayer.mMatrix;	//注視点を求める
 	c = mPlayer.mPosition;
 	//カメラの設定
 	u = CVector(0, 1, 0)*mPlayer.mMatrixRotate;

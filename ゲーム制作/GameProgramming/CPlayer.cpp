@@ -15,6 +15,7 @@ CPlayer::CPlayer()
 , mLine3(this, &mMatrix, CVector(9.0f, 0.0f, -8.0f), CVector(-9.0f, 0.0f, -8.0f))
 , mCollider(this, &mMatrix, CVector(0.0f,0.0f,0.0f),0.5f)
 , mStart(1)
+, mStop(0)
 {
 	mText.LoadTexture("FontWhite.tga", 1, 64);
 	mTag = EPLAYER;
@@ -23,6 +24,7 @@ CPlayer::CPlayer()
 }
 
 void CPlayer::Update(){
+	mStop--;
 	if (CKey::Push('A')){
 		mRotation.mY += 1;
 	}
@@ -31,7 +33,7 @@ void CPlayer::Update(){
 	}
 	if (CKey::Push(VK_UP)){
 		//ZŽ²•ûŒü‚É1i‚ñ‚¾’l‚ð‰ñ“]ˆÚ“®‚³‚¹‚é
-		mPosition = CVector(0.0f, 0.0f, 1.0f)*mMatrix;
+		mPosition = CVector(0.0f, 0.0f, 3.0f)*mMatrix;
 	}
 	if (CKey::Push('S')){
 		mRotation.mX -= 1;
@@ -47,11 +49,14 @@ void CPlayer::Update(){
 		bullet->Update();
 		//TaskManager.Add(bullet);
 	}
-	if (mFriend > 0){
-		if (CKey::Push('Z')){
-			mModelC.Load(OBJ, MTL);
-			new CFriendly(CVector(0.0f, 0.0f, 30.0f)*mMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
-			mFriend--;
+	if (mStop<0){
+		if (mFriend > 0){
+			if (CKey::Push('Z')){
+				mModelC.Load(OBJ, MTL);
+				new CFriendly(CVector(0.0f, 0.0f, 30.0f)*mMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+				mFriend--;
+				mStop = 100;
+			}
 		}
 	}
 	if (mStart > 0){

@@ -2,6 +2,7 @@
 #include"CTaskManager.h"
 #include"CCollisionManager.h"
 #include"CFriendly.h"
+#include "CEffect.h"
 #define OBJ "f16.obj"
 #define MTL "f16.mtl"
 #define HP 2
@@ -10,7 +11,7 @@ CModel COver::mModel;
 COver::COver()
 : mCollider(this, &mMatrix, CVector(0.0f, 0.0f, 0.0f), 0.4f)
 , mColSearch(this, &mMatrix, CVector(0.0f, 0.0f, 30.0f), 30.0f)
-
+, mHp(HP)
 {
 	if (mModel.mTriangles.size() == 0)
 	{
@@ -53,6 +54,7 @@ void COver::Collision(CCollider*m, CCollider*o){
 	{
 		if (o->mType == CCollider::ESPHERE)
 		{
+	
 			if (o->mpParent->mTag == EENEMY)
 			{
 				if (CCollider::Collision(m, o))
@@ -67,6 +69,11 @@ void COver::Collision(CCollider*m, CCollider*o){
 	switch (o->mType)
 	{
 	case CCollider::ESPHERE:
+		if (CCollider::Collision(m, o)){
+			new CEffect(o->mpParent->mPosition, 1.0f, 1.0f, "exp.tga", 4, 4, 2);
+			mHp--;
+		}
+		
 		break;
 	case CCollider::ETRIANGLE:
 		CVector adjust;

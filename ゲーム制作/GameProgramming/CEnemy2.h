@@ -15,5 +15,6 @@ public:
 	CCollider mColSearch;
 	CCharacter*mpPlayer;//プレイヤーのポインタ
 	int mHp;
+	int mCount;
 };
 #endif

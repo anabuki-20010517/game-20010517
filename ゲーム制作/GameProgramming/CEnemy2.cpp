@@ -14,6 +14,7 @@ CEnemy2::CEnemy2()
 , mColSearch(this, &mMatrix, CVector(0.0f,0.0f,100.0f),30.0f)
 , mpPlayer(0)
 , mHp(HP)
+, mCount(0)
 {
 			if (mModel.mTriangles.size() == 0)
 			{
@@ -41,6 +42,7 @@ void CEnemy2::Update(){
 	CVector vx = CVector(1.0f, 0.0f, 0.0f)*mMatrixRotate;
 	CVector vy = CVector(0.0f, 1.0f, 0.0f)*mMatrixRotate;
 	CVector vz = CVector(0.0f, 0.0f, 1.0f)*mMatrixRotate;
+	mCount--;
 	if (CPlayer::spInstance->mStart == 0)
 	{
 
@@ -64,6 +66,7 @@ void CEnemy2::Update(){
 			else{
 				mRotation.mX++;
 			}
+
 			//XŽ²‚ÌƒYƒŒ‚ª2.0ˆÈ‰º
 			if (-2.0f < dx && dx < 2.0f)
 			{
@@ -71,14 +74,20 @@ void CEnemy2::Update(){
 				if (-2.0f < dy && dy < 2.0f)
 				{
 					if (0.0f < dz){
-						CBullet*bullet = new CBullet();
-						bullet->Set(0.1f, 1.5f);
-						bullet->mPosition = CVector(0.0f, 0.0f, 10.0f)*mMatrix;
-						bullet->mRotation = mRotation;
-						bullet->Update();
+						if (mCount < 0){
+							CBullet*bullet = new CBullet();
+							bullet->Set(0.1f, 1.5f);
+							bullet->mPosition = CVector(0.0f, 0.0f, 10.0f)*mMatrix;
+							bullet->mRotation = mRotation;
+							bullet->Update();
+							mCount = 100;
+						}
 					}
 				}
 			}
+		}
+		else{
+			mPosition = CVector(0.0f, 0.0f, 0.9f)*mMatrix;
 		}
 		mpPlayer = 0;
 		if (mHp <= 0)
@@ -94,7 +103,7 @@ void CEnemy2::Update(){
 			return;
 		}
 		CTransform::Update();
-		mPosition = CVector(0.0f, 0.0f, 0.9f)*mMatrix;
+
 	}
 }
 

@@ -22,5 +22,6 @@ public:
 	CMatrix mBackGroundMatrix;
 	int mFriend;
 	int mStart;
+	int mStop;
 };
 #endif
