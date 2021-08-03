@@ -80,7 +80,7 @@ void CFriendly::Update(){
 							bullet->mPosition = CVector(0.0f, 0.0f, 10.0f)*mMatrix;
 							bullet->mRotation = mRotation;
 							bullet->Update();
-							mCount = 100;
+							mCount = 25;
 						}
 					}
 				}

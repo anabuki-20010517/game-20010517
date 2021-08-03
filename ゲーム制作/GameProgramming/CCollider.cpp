@@ -32,7 +32,7 @@ void CCollider::Render(){
 	float c[] = { 1.0f, 0.0f, 0.0f, 1.0f };
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, c);
 	//‹…•`‰æ
-	glutWireSphere(mRadius, 16, 16);
+	//glutWireSphere(mRadius, 16, 16);
 	glPopMatrix();
 }
 CCollider::~CCollider(){

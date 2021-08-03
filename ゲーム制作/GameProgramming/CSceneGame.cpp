@@ -49,9 +49,9 @@ void CSceneGame::Init()
 		, CVector(50.0f, 0.0f, -50.0f));
 
 	mColliderMesh.Set(NULL, &mBackGroundMatrix, &mBackGround);
-	new CEnemy2(CVector(-5.0f, 1.0f, -100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+	new CEnemy2(CVector(-5.0f, 1.0f, -200.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CEnemy2(CVector(5.0f, 1.0f, -100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
-	new CEnemy2(CVector(0.0f, 1.0f, -100.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
+	new CEnemy2(CVector(0.0f, 1.0f, -150.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CEnemy2(CVector(-20.0f, 1.0f, -70.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 	new CEnemy2(CVector(20.0f, 1.0f, -50.0f)*mBackGroundMatrix, CVector(), CVector(0.1f, 0.1f, 0.1f));
 

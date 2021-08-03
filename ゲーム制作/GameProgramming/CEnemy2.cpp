@@ -4,8 +4,8 @@
 #include"CCollisionManager.h"
 #include"CBullet.h"
 #include"CPlayer.h"
-#define OBJ "f16.obj"
-#define MTL "f16.mtl"
+#define OBJ "c5.obj"
+#define MTL "c5.mtl"
 #define HP 3
 CModel CEnemy2::mModel;
 
