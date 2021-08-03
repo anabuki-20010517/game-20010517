@@ -115,6 +115,7 @@ void CFriendly::Collision(CCollider*m, CCollider*o){
 		{
 			if (o->mpParent->mTag == EENEMY)
 			{
+
 				if (CCollider::Collision(m, o))
 				{
 					mpPlayer = o->mpParent;
@@ -126,12 +127,14 @@ void CFriendly::Collision(CCollider*m, CCollider*o){
 	switch (o->mType)
 	{
 	case CCollider::ESPHERE:
-
 		if (CCollider::Collision(m, o)){
-			new CEffect(o->mpParent->mPosition, 1.0f, 1.0f, "exp.tga", 4, 4, 2);
-			mHp--;
-		}
-		break;
+
+				new CEffect(o->mpParent->mPosition, 1.0f, 1.0f, "exp.tga", 4, 4, 2);
+				mHp--;
+			}
+	
+			break;
+	
 	case CCollider::ETRIANGLE:
 		CVector adjust;
 		if (CCollider::CollidionTriangleSphere(o, m, &adjust))
